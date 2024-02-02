@@ -3,7 +3,6 @@ public class MainApp {
     public static void main(String[] args) {
         int[][] array = new int[5][5];
         int[][] array1 = new int[5][5];
-        int[][] array2 = new int[1][1];
         setArrayRandom(array);
         printArray(array);
         sumArray(array);
