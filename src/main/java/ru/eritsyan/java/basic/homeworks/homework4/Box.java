@@ -48,7 +48,7 @@ public class Box {
 
     public void put(String item) {
         if (open && content == null) {
-            setContent(item);
+            content = item;
             System.out.println("В коробку помещен " + item);
         } else {
             System.out.println("Box is closed or not empty");
