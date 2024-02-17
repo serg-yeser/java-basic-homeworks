@@ -41,7 +41,7 @@ public class Plate {
         }
     }
 
-    public void setFood(int food) {
+    public void addFood(int food) {
         if (currentCapacity + food > maxCapacity) {
             currentCapacity = maxCapacity;
             System.out.println("Тарелка полностью заполнена");

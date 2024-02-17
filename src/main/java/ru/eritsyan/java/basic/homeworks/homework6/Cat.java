@@ -1,8 +1,8 @@
 package ru.eritsyan.java.basic.homeworks.homework6;
 
 public class Cat {
-    String name;
-    int appetite;
+    private String name;
+    private int appetite;
 
     boolean isHungry;
 

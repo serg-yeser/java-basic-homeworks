@@ -11,7 +11,7 @@ public class MainApp {
             cat[i].info();
         }
         plate.info();
-        plate.setFood(1);
+        plate.addFood(1);
         plate.getFood(122);
     }
 }
