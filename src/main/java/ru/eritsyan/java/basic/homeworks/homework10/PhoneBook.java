@@ -10,34 +10,35 @@ public class PhoneBook {
         map.put(phone, fio);
     }
 
-    public void find(String fio) {
+    public String find(String fio) {
         System.out.println("\nПоиск по имени - " + fio);
         if (map.isEmpty()) {
-            System.out.println("Справочник пустой");
-            return;
+            return "Справочник пустой";
         }
         int counter = 0;
+        String numbers = "";
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry.getValue().equals(fio)) {
-                System.out.println("Найдено совпадение \n ФИО = " + entry.getValue() + ", номер: " + entry.getKey());
+                numbers += "Найдено совпадение \n ФИО = " + entry.getValue() + ", номер: " + entry.getKey() + "\n";
                 counter++;
             }
         }
         if (counter == 0) {
-            System.out.println("Номер для " + fio + "не найден");
+            return "Номер для " + fio + "не найден";
+        } else {
+            return numbers;
         }
     }
 
-    public void containsPhoneNumber(String phone) {
+    public String containsPhoneNumber(String phone) {
         System.out.println("Проверка наличия номера " + phone + " в справочнике");
         if (map.isEmpty()) {
-            System.out.println("Справочник пустой");
-            return;
+            return "Справочник пустой";
         }
         if (map.containsKey(phone)) {
-            System.out.println("Номер " + phone + " есть в справочнике");
+            return "Номер " + phone + " есть в справочнике";
         } else {
-            System.out.println("Номера " + phone + " нет в справочнике");
+            return "Номера " + phone + " нет в справочнике";
         }
     }
 
