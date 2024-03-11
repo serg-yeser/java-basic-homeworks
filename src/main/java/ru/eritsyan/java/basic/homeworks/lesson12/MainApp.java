@@ -14,12 +14,7 @@ public class MainApp {
         System.out.println("Введите имя файла из списка(полный путь):");
         Scanner scanner = new Scanner(System.in);
         String fileName = scanner.next();
-        File file = new File(fileName);
-        while (!file.exists()) {
-            System.out.println("Введено некорректное имя, повторите ввод");
-            fileName = scanner.next();
-            file = new File(fileName);
-        }
+        fileName = checkFileName(fileName,scanner);
         System.out.println("\n Содержимое файла: ");
         readCoding(fileName);
         addData(fileName, "\nsome extra data" + random(1));
@@ -51,6 +46,16 @@ public class MainApp {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String checkFileName(String fileName, Scanner scanner) {
+        File file = new File(fileName);
+        while (!file.exists()) {
+            System.out.println("Введено некорректное имя, повторите ввод");
+            fileName = scanner.next();
+            file = new File(fileName);
+        }
+        return fileName;
     }
 
 }
