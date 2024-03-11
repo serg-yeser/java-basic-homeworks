@@ -11,7 +11,7 @@ public class MainApp {
     public static void main(String[] args) {
         File path = new File(".\\src");
         System.out.println("file.listFiles() = " + Arrays.toString(path.listFiles(File::isFile)));
-        System.out.println("Введите имя файла из списка(полный путь):");
+        System.out.println("Введите имя файла из списка:");
         Scanner scanner = new Scanner(System.in);
         String fileName = scanner.next();
         fileName = checkFileName(fileName,scanner);
