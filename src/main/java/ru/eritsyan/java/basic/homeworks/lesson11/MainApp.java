@@ -1,25 +1,22 @@
 package ru.eritsyan.java.basic.homeworks.lesson11;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 public class MainApp {
     public static void main(String[] args) {
-        List<Person> personSet = PersonDataBase.personSet;
-        PersonDataBase.add(new Person("Ivan", Position.DRIVER, 1L));
-        PersonDataBase.add(new Person("Petr", Position.MANAGER, 2L));
-        PersonDataBase.add(new Person("Nick", Position.QA, 3L));
-        PersonDataBase.add(new Person("Vick", Position.BRANCH_DIRECTOR, 4L));
-        System.out.println(personSet);
-        System.out.println(personSet.get(0).getPosition());
-        PersonDataBase.findById(5L);
-        PersonDataBase.findById(3L);
+        Map<Long, Person> personMap = PersonDataBase.personMap;
+        PersonDataBase.findById(1L);
+        PersonDataBase.add(1L, new Person("Ivan", Position.DIRECTOR, 1L));
+        PersonDataBase.add(2L, new Person("Petr", Position.QA, 2L));
+        PersonDataBase.add(3L, new Person("Nick", Position.BRANCH_DIRECTOR, 3L));
+        System.out.println(personMap);
+        PersonDataBase.findById(1L);
+        PersonDataBase.findById(4L);
         System.out.println(PersonDataBase.isManager(PersonDataBase.findById(3L)));
         System.out.println(PersonDataBase.isManager(PersonDataBase.findById(2L)));
         System.out.println(PersonDataBase.isEmployee(PersonDataBase.findById(2L)));
         System.out.println(PersonDataBase.isEmployee(PersonDataBase.findById(3L)));
-
         int[] array = {2, 5, 8, 3, 5, 1, 8, 3, 9, 0};
         System.out.println(Arrays.toString(array));
         bubbleSort(array);

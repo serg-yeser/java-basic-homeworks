@@ -2,7 +2,7 @@ package ru.eritsyan.java.basic.homeworks.lesson11;
 
 public class Person {
     private String name;
-    private ru.eritsyan.java.basic.homeworks.lesson11.Position position;
+    private Position position;
     private Long id;
 
     public Person(String name, ru.eritsyan.java.basic.homeworks.lesson11.Position position, Long id) {

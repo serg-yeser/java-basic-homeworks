@@ -1,44 +1,38 @@
 package ru.eritsyan.java.basic.homeworks.lesson11;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class PersonDataBase {
-    protected static List<Person> personSet = new ArrayList<>();
+    protected static Map<Long, Person> personMap = new HashMap<>();
 
     public static Person findById(Long id) {
-        for (int i = 0; i < personSet.size(); i++) {
-            if (personSet.get(i).getId() == id) {
-                System.out.println("Сотрудник найден:");
-                personSet.get(i).print();
-                return personSet.get(i);
-
-            }
+        if (personMap.isEmpty()) {
+            System.out.println("Список сотрудников пуст");
+            return null;
+        }
+        if (personMap.containsKey(id)) {
+            System.out.println("Сотрудник " + personMap.get(id).toString() + "найден");
+            return personMap.get(id);
         }
         System.out.println("Сотрудник не найден");
         return null;
     }
 
-    public static void add(Person person) {
-        personSet.add(person);
+
+    public static void add(Long id, Person person) {
+        personMap.put(id, person);
     }
 
     public static boolean isManager(Person person) {
-        if (person.getPosition().equals(Position.MANAGER)
+        return (person.getPosition().equals(Position.MANAGER)
                 || person.getPosition().equals(Position.DIRECTOR)
                 || person.getPosition().equals(Position.BRANCH_DIRECTOR)
-                || person.getPosition().equals(Position.SENIOR_MANAGER)) {
-            return true;
-        }
-        return false;
+                || person.getPosition().equals(Position.SENIOR_MANAGER));
     }
 
     public static boolean isEmployee(Person person) {
-        if (!isManager(person)) {
-            return true;
-        }
-        return false;
+        return (!isManager(person));
     }
 
 }
